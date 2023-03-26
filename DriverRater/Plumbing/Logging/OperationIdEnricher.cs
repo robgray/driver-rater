@@ -1,4 +1,4 @@
-﻿namespace HelmetRanker.Plumbing.Logging;
+﻿namespace DriverRater.Plumbing.Logging;
 
 using System;
 using System.Diagnostics;

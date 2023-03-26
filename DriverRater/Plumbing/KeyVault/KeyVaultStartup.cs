@@ -1,11 +1,11 @@
-﻿namespace HelmetRanker.Plumbing.KeyVault;
+﻿namespace DriverRater.Plumbing.KeyVault;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 public static class KeyVaultStartup
 {
-    public static void AddCustomKeyVault(this IServiceCollection services)
+    public static IServiceCollection AddCustomKeyVault(this IServiceCollection services)
     {            
         services.AddOptions<KeyVaultOptions>()
             .Configure<IConfiguration>((settings, configuration) =>
@@ -14,5 +14,6 @@ public static class KeyVaultStartup
             })
             .ValidateDataAnnotations();
 
+        return services;
     }
 }

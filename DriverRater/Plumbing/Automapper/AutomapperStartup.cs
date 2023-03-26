@@ -1,12 +1,16 @@
-﻿namespace HelmetRanker.Plumbing.Automapper;
+﻿namespace DriverRater.Plumbing.Automapper;
 
 using System;
 using System.Linq;
-using HelmetRanker.Entities;
+using DriverRater.Entities;
 using Microsoft.Extensions.DependencyInjection;
 
 public static class AutomapperStartup
 {
-    public static void AddCustomAutoMapper(this IServiceCollection services, params Type[] types) =>
-        services.AddAutoMapper(types.Concat(new[] { typeof(Driver) }).ToArray());
+    public static IServiceCollection AddCustomAutoMapper(this IServiceCollection services, params Type[] types)
+    {
+        services.AddAutoMapper(types.Concat(new[] { typeof(RankedDriver) }).ToArray());
+
+        return services;
+    }
 }

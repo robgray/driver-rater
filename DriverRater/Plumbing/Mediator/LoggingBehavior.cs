@@ -1,11 +1,11 @@
-﻿namespace HelmetRanker.Plumbing.Mediator;
+﻿namespace DriverRater.Plumbing.Mediator;
 
 using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using DriverRater.Extensions;
 using FluentValidation;
-using HelmetRanker.Extensions;
 using MediatR;
 using Serilog;
 using Serilog.Events;

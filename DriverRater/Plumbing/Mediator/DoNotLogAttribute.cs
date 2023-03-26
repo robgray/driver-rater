@@ -1,4 +1,4 @@
-﻿namespace HelmetRanker.Plumbing.Mediator;
+﻿namespace DriverRater.Plumbing.Mediator;
 
 using System;
 

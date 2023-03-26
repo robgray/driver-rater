@@ -1,14 +1,14 @@
-﻿namespace HelmetRanker.Plumbing.Validation;
+﻿namespace DriverRater.Plumbing.Validation;
 
+using DriverRater.Features.Drivers.v1.Commands;
 using FluentValidation;
-using HelmetRanker.Features.Drivers.v1.Commands;
 using Microsoft.Extensions.DependencyInjection;
 
 public static class ValidationStartup
 {
     public static IServiceCollection AddCustomValidation(this IServiceCollection services)
     {
-        services.AddValidatorsFromAssemblyContaining<NewDriverRank.Command>();
+        services.AddValidatorsFromAssemblyContaining<UpdateDriverRank.Command>();
         
         return services;
     }

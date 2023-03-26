@@ -1,9 +1,9 @@
-﻿namespace HelmetRanker.Features.Shared;
+﻿namespace DriverRater.Features.Shared;
 
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using HelmetRanker.Extensions;
+using DriverRater.Extensions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

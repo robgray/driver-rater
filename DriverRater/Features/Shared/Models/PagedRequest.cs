@@ -1,4 +1,4 @@
-﻿namespace HelmetRanker.Features.Shared.Models;
+﻿namespace DriverRater.Features.Shared.Models;
 public class PagedRequest
 {
     public const int DefaultPageSize = 10;

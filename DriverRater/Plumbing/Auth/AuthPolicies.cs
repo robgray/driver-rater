@@ -1,4 +1,4 @@
-namespace HelmetRanker.Plumbing.Auth;
+namespace DriverRater.Plumbing.Auth;
 
 public class AuthPolicies
 {

@@ -1,4 +1,4 @@
-﻿namespace HelmetRanker.Features.Drivers.v1.Models;
+﻿namespace DriverRater.Features.Drivers.v1.Models;
 
 using System.ComponentModel.DataAnnotations;
 

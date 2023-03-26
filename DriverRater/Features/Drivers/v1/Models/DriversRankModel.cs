@@ -1,5 +1,12 @@
-﻿namespace HelmetRanker.Features.Drivers.v1.Models;
+﻿namespace DriverRater.Features.Drivers.v1.Models;
 
-using HelmetRanker.Entities;
+using DriverRater.Entities;
 
-public record DriversRankModel(Guid Id, string Name, int RacingId, DriverRank DriverRank, Guid UserId);
+public class DriversRankModel
+{
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public int RacingId { get; set; }
+    public DriverRank DriverRank { get; set; }
+    public Guid UserId { get; set; }
+}

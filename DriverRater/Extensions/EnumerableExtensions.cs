@@ -1,4 +1,4 @@
-namespace HelmetRanker.Extensions;
+namespace DriverRater.Extensions;
 
 using System.Collections.Generic;
 using System.Linq;

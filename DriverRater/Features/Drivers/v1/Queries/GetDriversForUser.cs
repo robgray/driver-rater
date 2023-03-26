@@ -1,7 +1,8 @@
-﻿namespace HelmetRanker.Features.Drivers.v1.Queries;
+﻿namespace DriverRater.Features.Drivers.v1.Queries;
 
-using HelmetRanker.Entities;
-using HelmetRanker.Plumbing.Mediator;
+using System.Collections.Immutable;
+using DriverRater.Entities;
+using DriverRater.Plumbing.Mediator;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,29 +10,31 @@ using Microsoft.EntityFrameworkCore;
 public class GetDriversForUser
 {
     [UsedImplicitly]
-    public class Query : IQuery<IEnumerable<Driver>>
+    public class Query : IQuery<IEnumerable<RankedDriver>>
     {
         public Guid UserId { get; init; }
     }
 
     [UsedImplicitly]
-    public class QueryHandler : IQueryHandler<Query, IEnumerable<Driver>>
+    public class QueryHandler : IQueryHandler<Query, IEnumerable<RankedDriver>>
     {
-        private readonly DriverContext context;
+        private readonly DriverRatingContext ratingContext;
         
-        public QueryHandler(DriverContext context)
+        public QueryHandler(DriverRatingContext ratingContext)
         {
-            this.context = context;
+            this.ratingContext = ratingContext;
         }
         
-        public async Task<IEnumerable<Driver>> Handle(Query query, CancellationToken cancellationToken)
+        public async Task<IEnumerable<RankedDriver>> Handle(Query query, CancellationToken cancellationToken)
         {
             // TODO: Support paging
-            
-            return await context.Drivers
+
+            return await ratingContext.Drivers
                 .AsNoTracking()
+                .Include(d => d.RankedBy)
                 .Where(d => d.RankedBy.Id == query.UserId)
                 .ToListAsync(cancellationToken);
+
         }
     }
 

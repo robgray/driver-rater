@@ -1,4 +1,4 @@
-﻿namespace HelmetRanker.Extensions;
+﻿namespace DriverRater.Extensions;
 
 using System;
 using System.Reflection;

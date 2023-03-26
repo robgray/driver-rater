@@ -1,8 +1,8 @@
-﻿namespace HelmetRanker.Plumbing.Logging;
+﻿namespace DriverRater.Plumbing.Logging;
 
 using System;
 using System.Reflection;
-using HelmetRanker.Extensions;
+using DriverRater.Extensions;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Core;

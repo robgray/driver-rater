@@ -1,10 +1,10 @@
-﻿namespace HelmetRanker.Plumbing.Mediator;
+﻿namespace DriverRater.Plumbing.Mediator;
 
 using System;
 using System.Linq;
 using System.Net;
+using DriverRater.Exceptions;
 using FluentValidation;
-using HelmetRanker.Exceptions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;

@@ -1,7 +1,7 @@
-﻿namespace HelmetRanker.Features.HelmetPack.v1;
+﻿namespace DriverRater.Features.HelmetPack.v1;
 
 using AutoMapper;
-using HelmetRanker.Features.Shared;
+using DriverRater.Features.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

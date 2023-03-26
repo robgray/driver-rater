@@ -1,4 +1,4 @@
-﻿namespace HelmetRanker.Plumbing.KeyVault;
+﻿namespace DriverRater.Plumbing.KeyVault;
 
 using System.ComponentModel.DataAnnotations;
 

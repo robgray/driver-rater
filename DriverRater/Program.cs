@@ -1,34 +1,37 @@
-using HelmetRanker.Plumbing.Automapper;
-using HelmetRanker.Plumbing.Controllers;
-using HelmetRanker.Plumbing.Mediator;
-using HelmetRanker.Plumbing.Swagger;
+﻿namespace DriverRater;
 
-var builder = WebApplication.CreateBuilder(args);
+using Serilog;
 
-builder.Services.AddCustomControllers();
-builder.Services.AddCustomSwagger();
-builder.Services.AddCustomAutoMapper();
-builder.Services.AddCustomMediator();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+public class Program
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-    app.UseCustomSwagger();
+    public static async Task Main(string[] args)
+    {
+        /* setup the logger to catch all errors */
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Information()
+            .WriteTo.Console()
+            .CreateBootstrapLogger(); // <- this means it is temp & gets reconfigured/replaced by the host later on :-)
+
+        var host = CreateHostBuilder(args).Build();
+        
+        await host.RunAsync();
+    }
+    
+    private static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host
+            .CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(
+                webBuilder =>
+                {
+                    webBuilder
+                        .ConfigureKestrel(opt => opt.AddServerHeader = false)
+                        .ConfigureAppConfiguration(builder => builder.AddUserSecrets<Program>())
+                        .UseStartup<Startup>();
+                })
+            .ConfigureLogging(logging => logging.ClearProviders())
+            .UseSerilog(
+                (context, services, configuration) => configuration
+                    .ReadFrom.Configuration(context.Configuration)
+                    .ReadFrom.Services(services)
+                    .WriteTo.Console());
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-app.UseRouting();
-
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
-
-app.MapFallbackToFile("index.html");
-
-app.Run();

@@ -1,4 +1,4 @@
-﻿namespace HelmetRanker.Entities;
+﻿namespace DriverRater.Entities;
 
 public class User
 {
@@ -13,5 +13,5 @@ public class User
     public string Name { get; set; }
     public int RacingId { get; set; }
 
-    public virtual ICollection<Driver> RankedDrivers { get; set; } = new List<Driver>();
+    public virtual ICollection<RankedDriver> RankedDrivers { get; set; } = new List<RankedDriver>();
 }
