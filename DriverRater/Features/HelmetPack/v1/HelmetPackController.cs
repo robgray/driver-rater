@@ -16,6 +16,8 @@ public class HelmetPackController : BaseController
     [HttpGet("{userId:Guid}")]
     public Task<IActionResult> DownloadHelmetPackForUser(Guid userId)
     {
+        // this is going to return a zip file with all helmets I've ranked.
+        
         // Downloads a helmet pack for just this user's input
         throw new NotImplementedException();
     }
