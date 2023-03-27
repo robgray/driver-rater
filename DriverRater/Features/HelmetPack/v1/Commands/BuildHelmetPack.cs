@@ -65,13 +65,15 @@ public class BuildHelmetPack
             
             // Create folder for user 
             var sessionId = Guid.NewGuid();
+            
+            /*
             var folder = $"C:/temp/{sessionId}";
-
             var di = Directory.CreateDirectory(folder);
             foreach (var data in helmetData)
             {
                 data.Data.ToFile(data.FileName);
             }
+            */
 
             await using (var fileStream = new FileStream($"C:/temp/{sessionId}.zip", FileMode.CreateNew))
             {

@@ -1,6 +1,7 @@
 ﻿namespace DriverRater.Features.HelmetPack.v1;
 
 using AutoMapper;
+using DriverRater.Features.HelmetPack.v1.Queries;
 using DriverRater.Features.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -14,12 +15,12 @@ public class HelmetPackController : BaseController
     }
 
     [HttpGet("{userId:Guid}")]
-    public Task<IActionResult> DownloadHelmetPackForUser(Guid userId)
+    public async Task<IActionResult> DownloadHelmetPackForUser(Guid userId)
     {
         // this is going to return a zip file with all helmets I've ranked.
-        
-        // Downloads a helmet pack for just this user's input
-        throw new NotImplementedException();
+        var response = await ExecuteMediatorRequest<BuildHelmetPack.Command, BuildHelmetPack.Response>(userId);
+
+        return File(response.ZilFileData, "application/zip", response.Filename);
     }
 
     [HttpGet("all")]
