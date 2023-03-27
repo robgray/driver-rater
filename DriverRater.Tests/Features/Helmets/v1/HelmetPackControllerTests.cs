@@ -65,9 +65,9 @@ public class HelmetPackControllerTests : ApiFactory<Startup>
             .AllowAnyHttpStatus()
             .DownloadFileAsync(
                 localFolderPath: "C:/temp/",
-                localFileName: $"helmet-{user.Id}",
+                localFileName: $"helmet-{user.RacingId}.zip",
                 cancellationToken: ct);
 
-        response.ShouldBe($"C:/temp/helmet-{user.Id}");
+        response.ShouldBe($"C:/temp/helmet-{user.RacingId}.zip");
     }
 }

@@ -63,38 +63,38 @@ public class BuildHelmetPack
                 })
                 .ToArray();
             
-            // Create folder for user 
-            var sessionId = Guid.NewGuid();
             
-            /*
-            var folder = $"C:/temp/{sessionId}";
-            var di = Directory.CreateDirectory(folder);
-            foreach (var data in helmetData)
+            var sessionId = Guid.NewGuid();
+            try
             {
-                data.Data.ToFile(data.FileName);
-            }
-            */
-
-            await using (var fileStream = new FileStream($"C:/temp/{sessionId}.zip", FileMode.CreateNew))
-            {
-                using (var archive = new ZipArchive(fileStream, ZipArchiveMode.Create, true))
+                await using (var fileStream = new FileStream($"C:/temp/{sessionId}.zip", FileMode.CreateNew))
                 {
-                    foreach (var helmet in helmetData)
+                    using (var archive = new ZipArchive(fileStream, ZipArchiveMode.Create, true))
                     {
-                        var zipArchiveEntry = archive.CreateEntry(helmet.FileName, CompressionLevel.Fastest);
-                        await using var zipStream = zipArchiveEntry.Open();
-                        await zipStream.WriteAsync(helmet.Data, 0, helmet.Data.Length, cancellationToken);  
+                        foreach (var helmet in helmetData)
+                        {
+                            var zipArchiveEntry = archive.CreateEntry(helmet.FileName, CompressionLevel.Fastest);
+                            await using var zipStream = zipArchiveEntry.Open();
+                            await zipStream.WriteAsync(helmet.Data, 0, helmet.Data.Length, cancellationToken);
+                        }
                     }
                 }
+
+                // read file to bytes.
+                var zipFileBytes = await File.ReadAllBytesAsync($"C:/temp/{sessionId}.zip", cancellationToken);
+                return new Response
+                {
+                    Filename = $"HelmetPack-{user.RacingId}.zip",
+                    ZilFileData = zipFileBytes,
+                };
             }
-            
-            // read file to bytes.
-            var zipFileBytes = await File.ReadAllBytesAsync($"C:/temp/{sessionId}.zip", cancellationToken);
-            return new Response  
+            finally
             {
-                Filename = $"HelmetPack-{user.RacingId}.zip",
-                ZilFileData = zipFileBytes,
-            };
+                if (File.Exists($"C:/temp/{sessionId}.zip"))
+                {
+                    File.Delete($"C:/temp/{sessionId}.zip");
+                }
+            }
 
             string templateName(DriverRank rank) => rank switch
             {

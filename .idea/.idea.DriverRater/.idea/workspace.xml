@@ -7,13 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e74fcb6-8c44-488a-8c34-66cfa8500803" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DriverRater.Tests/Features/Helmets/v1/HelmetPackControllerTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater/Features/HelmetPack/v1/Models/HelmetPackMappingProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DriverRater/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DriverRater/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/DriverRater.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater/DriverRater.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/HelmetPack/v1/Commands/BuildHelmetPack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater/Features/HelmetPack/v1/Commands/BuildHelmetPack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/HelmetPack/v1/HelmetPackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater/Features/HelmetPack/v1/HelmetPackController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Shared/BaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater/Features/Shared/BaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Tests/Features/Helmets/v1/HelmetPackControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Tests/Features/Helmets/v1/HelmetPackControllerTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +125,7 @@
       <workItem from="1679133753128" duration="1425000" />
       <workItem from="1679646587952" duration="1768000" />
       <workItem from="1679701124359" duration="28200000" />
-      <workItem from="1679907055280" duration="1619000" />
+      <workItem from="1679907055280" duration="2841000" />
     </task>
     <servers />
   </component>
@@ -229,19 +224,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DriverRater/Features/HelmetPack/v1/Commands/BuildHelmetPack.cs</url>
-          <line>66</line>
-          <properties documentPath="C:\source\robgray\driver-rater\DriverRater\Features\HelmetPack\v1\Commands\BuildHelmetPack.cs" initialLine="66" containingFunctionPresentation="method 'Handle'">
-            <startOffsets>
-              <option value="1999" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2030" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/DriverRater/Features/HelmetPack/v1/Commands/BuildHelmetPack.cs</url>
