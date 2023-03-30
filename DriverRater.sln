@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverRater", "DriverRater\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverRater.Tests", "DriverRater.Tests\DriverRater.Tests.csproj", "{D1308F90-8DAC-4427-AD74-93259E929DCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverRater.UI", "DriverRater.UI\DriverRater.UI.csproj", "{AFD6E9F4-4D4E-45D7-B46D-67792DFBB58C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverRater.Shared", "DriverRater.Shared\DriverRater.Shared.csproj", "{B6615F8E-9B26-42EF-9EAB-86319C52E1DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +22,14 @@ Global
 		{D1308F90-8DAC-4427-AD74-93259E929DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1308F90-8DAC-4427-AD74-93259E929DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1308F90-8DAC-4427-AD74-93259E929DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFD6E9F4-4D4E-45D7-B46D-67792DFBB58C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD6E9F4-4D4E-45D7-B46D-67792DFBB58C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD6E9F4-4D4E-45D7-B46D-67792DFBB58C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD6E9F4-4D4E-45D7-B46D-67792DFBB58C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6615F8E-9B26-42EF-9EAB-86319C52E1DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6615F8E-9B26-42EF-9EAB-86319C52E1DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6615F8E-9B26-42EF-9EAB-86319C52E1DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6615F8E-9B26-42EF-9EAB-86319C52E1DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

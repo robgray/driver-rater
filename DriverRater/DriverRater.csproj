@@ -38,4 +38,8 @@
       <Folder Include="Features\HelmetPack\v1\Models" />
       <Folder Include="Features\HelmetPack\v1\Queries" />
     </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\DriverRater.Shared\DriverRater.Shared.csproj" />
+    </ItemGroup>
 </Project>
