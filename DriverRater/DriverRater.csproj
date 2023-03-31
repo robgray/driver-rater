@@ -32,11 +32,25 @@
         <PackageReference Include="Serilog.Sinks.Seq" Version="5.2.2" />
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
+        <PackageReference Include="System.IO.Compression" Version="4.3.0" />
     </ItemGroup>
     
     <ItemGroup>
-      <Folder Include="Features\HelmetPack\v1\Models" />
       <Folder Include="Features\HelmetPack\v1\Queries" />
+      <Folder Include="Resources" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Remove="Resources\helmet_black.tga" />
+      <EmbeddedResource Include="Resources\helmet_black.tga" />
+      <None Remove="Resources\helmet_blue.tga" />
+      <EmbeddedResource Include="Resources\helmet_blue.tga" />
+      <None Remove="Resources\helmet_green.tga" />
+      <EmbeddedResource Include="Resources\helmet_green.tga" />
+      <None Remove="Resources\helmet_red.tga" />
+      <EmbeddedResource Include="Resources\helmet_red.tga" />
+      <None Remove="Resources\helmet_yellow.tga" />
+      <EmbeddedResource Include="Resources\helmet_yellow.tga" />
     </ItemGroup>
     
     <ItemGroup>

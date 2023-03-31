@@ -91,8 +91,8 @@ public class DriverControllerTests : ApiFactory<Startup>
     }
     
     [Fact]
-    public async Task Rank_WhenDriverRankedByUser_ShouldUpdatedRank()
+    public Task Rank_WhenDriverRankedByUser_ShouldUpdatedRank()
     {
-        
+        throw new NotImplementedException();
     }
 }
