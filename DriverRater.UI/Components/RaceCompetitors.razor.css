@@ -1,0 +1,29 @@
+﻿.rc
+{
+    width: 20px;
+}
+
+.rc-Green
+{
+    background-color: green;
+}
+
+.rc-Blue
+{
+    background-color: #0d6efd;
+}
+
+.rc-Yellow
+{
+    background-color: #ffc720;
+}
+
+.rc-Red
+{
+    background-color: red;
+}
+
+.rc-Black
+{
+    background-color: black;
+}

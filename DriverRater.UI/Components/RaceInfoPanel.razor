@@ -1,0 +1,37 @@
+﻿@if (RaceSummary is not null)
+{
+    <div class="card mb-3" style="max-width: 540px">
+        <div class="row g-1">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <h5 class="card-title">Race Details</h5>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Session Id</label>
+                        </div>
+                        <div class="col-md-8">
+                            @RaceSummary.SubsessionId
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Series</label>
+                        </div>
+                        <div class="col-md-8">
+                            @RaceSummary.SeriesName
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Race Date</label>
+                        </div>
+                        <div class="col-md-8">
+                            @RaceSummary.SessionStartTime.ToString("g")
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}

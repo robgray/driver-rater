@@ -1,0 +1,35 @@
+﻿@if (Races is null)
+{
+    <p>Loading Recent Races..</p>
+}
+else 
+{
+<table class="table">
+    <thead>
+    <tr>
+        <th>Session Id</th>
+        <th>Race Time</th>
+        <th>Series</th>
+        <th>Start</th>
+        <th>Start</th>
+        <th>Finish</th>
+        <th>Winner</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var race in Races)
+    {
+        var link = $"/race/{race.SubsessionId}";
+        <tr>
+            <td><a href="@link">@race.SubsessionId</a></td>
+            <td>@race.SessionStartTime.AddHours(10).ToString("g")</td>
+            <td>@race.SeriesName</td>
+            <td>@race.StartPosition</td>
+            <td>@race.FinishPosition</td>
+            <td>@race.StrengthOfField</td>
+            <td>@race.WinnerName</td>
+        </tr>
+    }
+    </tbody>
+</table>
+}

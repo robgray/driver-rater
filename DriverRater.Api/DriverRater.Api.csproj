@@ -1,0 +1,67 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+        <ImplicitUsings>enable</ImplicitUsings>
+      <UserSecretsId>f866eb56-6ee4-432c-96ed-6f39e1967e9a</UserSecretsId>
+      <AssemblyName>DriverRater.Api</AssemblyName>
+      <RootNamespace>DriverRater.Api</RootNamespace>
+  </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+        <PackageReference Include="Aydsko.iRacingData" Version="0.9.2" />
+        <PackageReference Include="FluentValidation" Version="11.5.2" />
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.2" />
+        <PackageReference Include="Flurl.Http" Version="3.2.4" />
+        <PackageReference Include="JetBrains.Annotations" Version="2023.2.0" />
+        <PackageReference Include="MediatR" Version="12.1.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.10" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.4" />
+        <PackageReference Include="Serilog" Version="2.12.0" />
+        <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+        <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+        <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
+        <PackageReference Include="Serilog.Exceptions.EntityFrameworkCore" Version="8.4.0" />
+        <PackageReference Include="Serilog.Settings.Configuration" Version="3.4.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+        <PackageReference Include="Serilog.Sinks.Seq" Version="5.2.2" />
+        <PackageReference Include="SerilogTimings" Version="3.0.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.32.1" />
+        <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Folder Include="Resources" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <None Remove="Resources\helmet_black.tga" />
+      <EmbeddedResource Include="Resources\helmet_black.tga" />
+      <None Remove="Resources\helmet_blue.tga" />
+      <EmbeddedResource Include="Resources\helmet_blue.tga" />
+      <None Remove="Resources\helmet_green.tga" />
+      <EmbeddedResource Include="Resources\helmet_green.tga" />
+      <None Remove="Resources\helmet_red.tga" />
+      <EmbeddedResource Include="Resources\helmet_red.tga" />
+      <None Remove="Resources\helmet_yellow.tga" />
+      <EmbeddedResource Include="Resources\helmet_yellow.tga" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\DriverRater.Shared\DriverRater.Shared.csproj" />
+      <ProjectReference Include="..\DriverRater.UI\DriverRater.UI.csproj" />
+    </ItemGroup>
+</Project>

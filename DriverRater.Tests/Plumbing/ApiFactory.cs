@@ -4,7 +4,7 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using DriverRater.Entities;
+using DriverRater.Api.Entities;
 using Flurl.Http;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Hosting;
@@ -65,7 +65,7 @@ public class ApiFactory<TStartup> : WebApplicationFactory<TStartup>
         return new FlurlClient(client);
     }
 
-    protected FlurlClient CreateAuthenticatedClient()
+    protected FlurlClient CreateAuthenticatedClient(Guid? profileId = null)
     {
         var client = Server.CreateClient();
 
@@ -82,15 +82,23 @@ public class ApiFactory<TStartup> : WebApplicationFactory<TStartup>
             const string myIssuer = "https://openid.example.io";
             const string myAudience = "api.example";
 
+            var claims = new List<Claim>
+            {
+                new(JwtRegisteredClaimNames.Sub, "TEST USER"),
+                new(JwtRegisteredClaimNames.Email, "test.user@example.com"),
+                new(JwtRegisteredClaimNames.GivenName, "Test"),
+                new(JwtRegisteredClaimNames.FamilyName, "User"),
+            };
+
+            if (profileId is not null)
+            {
+                claims.Add(new("profile_id", profileId.ToString()));
+            }
+            
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor()
             {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim(JwtRegisteredClaimNames.Sub, "TEST USER"),
-                    new Claim(JwtRegisteredClaimNames.Email, "test.user@example.com"),
-                    // Add other claims as needed.
-                }),
+                Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddDays(7),
                 Issuer = myIssuer,
                 Audience = myAudience,

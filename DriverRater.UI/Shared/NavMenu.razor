@@ -1,6 +1,10 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using DriverRater.UI.Api
+@inject IDriverRaterApi DriverRaterApi;
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">DriverRater.UI</a>
+        <a class="navbar-brand" href="">Driver Rating</a>
+        <sub>For iRacing</sub>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -14,18 +18,26 @@
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
+        <AuthorizeView>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="all">
+                    <span class="oi oi-globe" aria-hidden="true"></span> All Rated Drivers
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="recent-races">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Recent Races
+                </NavLink>
+            </div>
+            <div class="nav-item px-3">
+                <NavLink class="nav-link" href="@DriverRaterApi.DownloadHelmetPackForUserUrl()" target="_blank">
+                    <span class="oi oi-data-transfer-download" aria-hidden="true"></span> Get Helmet Pack
+                </NavLink>
+            </div>
+        </AuthorizeView>    
     </nav>
 </div>
+
 
 @code {
     private bool collapseNavMenu = true;
@@ -36,5 +48,4 @@
     {
         collapseNavMenu = !collapseNavMenu;
     }
-
 }
