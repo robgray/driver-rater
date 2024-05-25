@@ -1,0 +1,25 @@
+﻿  @page "/race/{subsessionId:int}"
+@attribute [Authorize]
+@using DriverRater.Shared.RacingService.v1.Models
+<PageTitle>Drivers for Session @SubsessionId</PageTitle>
+<RaceInfoPanel RaceSummary="RaceSummary"></RaceInfoPanel>
+<RaceCompetitors SubsessionId="@SubsessionId"></RaceCompetitors>
+
+@code {
+    
+    [Parameter]
+    public int SubsessionId { get; set; }
+    
+    public RecentMemberRaceSummary? RaceSummary { get; set; }
+
+    protected override void OnInitialized()
+    {
+        RaceSummary = new RecentMemberRaceSummary
+        {
+            SubsessionId = SubsessionId,
+            SeriesName = "Formula Vee",
+            SessionStartTime = DateTime.UtcNow,
+        };
+    }
+
+}

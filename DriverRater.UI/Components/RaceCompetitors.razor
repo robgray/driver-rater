@@ -1,0 +1,59 @@
+﻿@using DriverRater.Shared.Drivers.v1.Models
+@using DriverRater.Shared
+@if (Drivers is null)
+{
+    if (SubsessionId.HasValue)
+    {
+        <p>Loading Drivers for @SubsessionId</p>
+    }
+    else
+    {
+        <p>Loading Drivers for User</p>
+    }
+}
+else
+{
+    if (!Drivers.Any())
+    {
+        <p>You haven't rated any drivers yet.  Go to your <a href="/recent-races">Recent Races</a>a select a race to rate drivers.</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Driver</th>
+                <th>Rank</th>
+                <th>Last Ranked</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var driver in Drivers)
+            {
+                <tr>
+                    <td class="rc rc-@driver.DriverRank"></td>
+                    <td><label class="form-label mt-2">@driver.Name</label></td>
+                    <td>
+                        <select class="form-select"
+                                id="driverRating"
+                                aria-label="Driver Rating"
+                                @onchange="@(e => RankChanged(e, driver))">
+                            @if (driver.DriverRank == Rank.None)
+                            {
+                                <option selected="@(driver.DriverRank == Rank.None)" value="0">None</option>
+                            }
+                            <option selected="@(driver.DriverRank == Rank.Blue)" value="1">Blue</option>
+                            <option selected="@(driver.DriverRank == Rank.Green)" value="2">Green</option>
+                            <option selected="@(driver.DriverRank == Rank.Yellow)" value="3">Yellow</option>
+                            <option selected="@(driver.DriverRank == Rank.Red)" value="4">Red</option>
+                            <option selected="@(driver.DriverRank == Rank.Black)" value="5">Black</option>
+                        </select>
+                    </td>
+                    <td><label class="form-label mt-2">@driver.LastRankedDate.ToDisplay("g", " - ")</label></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+}

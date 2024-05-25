@@ -8,15 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Flurl" Version="4.0.0" />
-        <PackageReference Include="Flurl.Http" Version="4.0.2" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.5" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.5" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="8.0.5" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.5" PrivateAssets="all" />
-        <PackageReference Include="Microsoft.Authentication.WebAssembly.Msal" Version="8.0.5" />
+        <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.3" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.Authentication.WebAssembly.Msal" Version="8.0.3" />
         <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -24,7 +20,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css.map" />
     </ItemGroup>
 
 </Project>

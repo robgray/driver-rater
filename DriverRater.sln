@@ -1,12 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverRater", "DriverRater\DriverRater.csproj", "{5C530636-0ECD-4181-964D-84E14CFCC989}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverRater.Api", "DriverRater.Api\DriverRater.Api.csproj", "{5C530636-0ECD-4181-964D-84E14CFCC989}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverRater.Tests", "DriverRater.Tests\DriverRater.Tests.csproj", "{D1308F90-8DAC-4427-AD74-93259E929DCA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverRater.UI", "DriverRater.UI\DriverRater.UI.csproj", "{AFD6E9F4-4D4E-45D7-B46D-67792DFBB58C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverRater.Shared", "DriverRater.Shared\DriverRater.Shared.csproj", "{B6615F8E-9B26-42EF-9EAB-86319C52E1DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1ABABCC9-9DF7-4A70-85E4-ECAEBB3B9A27}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,5 +34,6 @@ Global
 		{B6615F8E-9B26-42EF-9EAB-86319C52E1DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{D1308F90-8DAC-4427-AD74-93259E929DCA} = {1ABABCC9-9DF7-4A70-85E4-ECAEBB3B9A27}
 	EndGlobalSection
 EndGlobal

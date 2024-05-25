@@ -1,8 +1,10 @@
 ﻿namespace DriverRater.Tests.Features.RacingService;
 
-using DriverRater.Entities;
-using DriverRater.Features.RaceResults.v1.Models;
-using DriverRater.Shared.Models;
+using DriverRater.Api;
+using DriverRater.Api.Entities;
+using DriverRater.Shared;
+using DriverRater.Shared.Drivers.v1.Models;
+using DriverRater.Shared.RacingService.v1.Models;
 using DriverRater.Tests.Plumbing;
 using Flurl.Http;
 using Microsoft.AspNetCore.Http;
@@ -10,16 +12,22 @@ using Xunit.Abstractions;
 
 public class RacingServiceControllerTests : ApiFactory<Startup>
 {
-    private const int MemberId = 59619; 
+    private const int MemberId = 59619;
+    private readonly Profile profile;
     
     public RacingServiceControllerTests(ITestOutputHelper testOutputHelper) : base(testOutputHelper)
     {
+        profile = new Profile("Rob Gray", 59619);
+        var context = GetService<DriverRatingContext>();
+        
+        context.Profiles.Add(profile);
+        context.SaveChanges();
     }
 
     [Fact]
     public async Task RecentResults_ShouldReturnRecentMemberResults()
     {
-        var client = CreateUnauthenticatedClient();
+        var client = CreateAuthenticatedClient(profile.Id);
 
         var response = await client.Request($"/api/v1/racingservice/{MemberId}/recent")
             .AllowAnyHttpStatus()
@@ -32,92 +40,119 @@ public class RacingServiceControllerTests : ApiFactory<Startup>
     }
 
     [Fact]
-    public async Task GetRaceDrivers_WhenNoDriversRanked_ShouldGetAllDriversWithNoRank()
+    public async Task GetRaceDrivers_WhenNoDriversRanked_ShouldGetAllDriversButSelfWithNoRank()
     {
+        // This Subsession has Rob Gray in it and he is a user.
         const int SubsessionId = 60565875;
 
-        var user = new User("Rob Gray", 59619);
-        var context = GetService<DriverRatingContext>();
-        context.Users.Add(user);
-        await context.SaveChangesAsync();
-        
-        var client = CreateUnauthenticatedClient();
-        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers/{user.Id}")
+        var client = CreateAuthenticatedClient(profile.Id);
+        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers")
             .AllowAnyHttpStatus()
             .GetAsync();
 
-        var data = (await response.GetJsonAsync<IEnumerable<SubsessionRankedDriver>>()).ToArray();
-        data.ShouldAllBe(d => d.Rank == DriverRank.None);
+        var data = (await response.GetJsonAsync<IEnumerable<DriversRankModel>>()).ToArray();
+        data.ShouldAllBe(d => d.DriverRank == Rank.None);
+        data.Length.ShouldBe(11);
+        
+        data[0].Name.ShouldBe("Sam Brooks7");
+        data[1].Name.ShouldBe("Drazen Car");
+        data[2].Name.ShouldBe("Mike DeGroot");
+        data[3].Name.ShouldBe("David Babson");
+        data[4].Name.ShouldBe("Matheus Guimaraes Jr");
+        data[5].Name.ShouldBe("Benjamin M Rogers");
+        data[6].Name.ShouldBe("Tyrus Clements");
+        data[7].Name.ShouldBe("Tray Law");
+        data[8].Name.ShouldBe("Tsuyoshi Yoshinouchi");
+        data[9].Name.ShouldBe("Randle Lahey");
+        data[10].Name.ShouldBe("Robert Pegg");
+    }
+    
+    [Fact]
+    public async Task GetRaceDrivers_WhenNoDriversRanked_ShouldGetAllDriversWithNoRank()
+    {
+        // This Subsession has Rob Gray in it and he is a user.
+        const int SubsessionId = 60565875;
+        
+        var notMeProfile = new Profile("Not Me", 1);
+        var context = GetService<DriverRatingContext>(); 
+        context.Profiles.Add(notMeProfile);
+        await context.SaveChangesAsync();
+        
+        var client = CreateAuthenticatedClient(notMeProfile.Id);
+        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers")
+            .AllowAnyHttpStatus()
+            .GetAsync();
+
+        var data = (await response.GetJsonAsync<IEnumerable<DriversRankModel>>()).ToArray();
+        data.ShouldAllBe(d => d.DriverRank == Rank.None);
         data.Length.ShouldBe(12);
         
-        data[0].DriverName.ShouldBe("Rob Gray");
-        data[1].DriverName.ShouldBe("Sam Brooks7");
-        data[2].DriverName.ShouldBe("Drazen Car");
-        data[3].DriverName.ShouldBe("Mike DeGroot");
-        data[4].DriverName.ShouldBe("David Babson");
-        data[5].DriverName.ShouldBe("Mathues Guimaraes Jr.");
-        data[6].DriverName.ShouldBe("Benjamin M Rogers");
-        data[7].DriverName.ShouldBe("Tyrus Clements");
-        data[8].DriverName.ShouldBe("Tray Law");
-        data[9].DriverName.ShouldBe("Tsuyoshi Yoshinouchi");
-        data[10].DriverName.ShouldBe("Randle Lahey");
-        data[11].DriverName.ShouldBe("Robert Pegg");
+        data[0].Name.ShouldBe("Rob Gray");
+        data[1].Name.ShouldBe("Sam Brooks7");
+        data[2].Name.ShouldBe("Drazen Car");
+        data[3].Name.ShouldBe("Mike DeGroot");
+        data[4].Name.ShouldBe("David Babson");
+        data[5].Name.ShouldBe("Matheus Guimaraes Jr");
+        data[6].Name.ShouldBe("Benjamin M Rogers");
+        data[7].Name.ShouldBe("Tyrus Clements");
+        data[8].Name.ShouldBe("Tray Law");
+        data[9].Name.ShouldBe("Tsuyoshi Yoshinouchi");
+        data[10].Name.ShouldBe("Randle Lahey");
+        data[11].Name.ShouldBe("Robert Pegg");
     }
     
     [Fact]
     public async Task GetRaceDrivers_WhenSomeDriversRanked_ShouldGetAllDriversSomeRanked()
     {
         const int SubsessionId = 60565875;
-
-        var user = new User("Rob Gray", 59619);
-        var context = GetService<DriverRatingContext>();
-        context.Users.Add(user);
+        var notMeProfile = new Profile("Not Me", 1);
+        var context = GetService<DriverRatingContext>(); 
+        context.Profiles.Add(notMeProfile);
         await context.SaveChangesAsync();
 
-        var rankedDriver = new RankedDriver
+        var rankedDriver = new RankedDriver(notMeProfile)
         {
             Name = "Rob Gray",
             Notes = "Racing God",
             RacingId = 59619,
-            RankedBy = user,
         };
         rankedDriver.UpdateRank(DriverRank.Blue);
         context.Drivers.Add(rankedDriver);
         await context.SaveChangesAsync();
         
-        var client = CreateUnauthenticatedClient();
-        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers/{user.Id}")
+        var client = CreateAuthenticatedClient(notMeProfile.Id);
+        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers")
             .AllowAnyHttpStatus()
             .GetAsync();
 
-        var data = (await response.GetJsonAsync<IEnumerable<SubsessionRankedDriver>>()).ToArray();
-        data.ShouldAllBe(d => d.Rank == DriverRank.None || d.Rank == DriverRank.Blue);
+        var data = (await response.GetJsonAsync<IEnumerable<DriversRankModel>>()).ToArray();
+        data.ShouldAllBe(d => d.DriverRank == Rank.None || d.DriverRank == Rank.Blue);
         data.Length.ShouldBe(12);
         
-        data[0].DriverName.ShouldBe("Rob Gray");
-        data[0].Rank.ShouldBe(DriverRank.Blue);
+        data[0].Name.ShouldBe("Rob Gray");
+        data[0].DriverRank.ShouldBe(Rank.Blue);
         
-        data[1].DriverName.ShouldBe("Sam Brooks7");
-        data[1].Rank.ShouldBe(DriverRank.None);
-        data[2].DriverName.ShouldBe("Drazen Car");
-        data[2].Rank.ShouldBe(DriverRank.None);
-        data[3].DriverName.ShouldBe("Mike DeGroot");
-        data[3].Rank.ShouldBe(DriverRank.None);
-        data[4].DriverName.ShouldBe("David Babson");
-        data[4].Rank.ShouldBe(DriverRank.None);
-        data[5].DriverName.ShouldBe("Mathues Guimaraes Jr.");
-        data[5].Rank.ShouldBe(DriverRank.None);
-        data[6].DriverName.ShouldBe("Benjamin M Rogers");
-        data[6].Rank.ShouldBe(DriverRank.None);
-        data[7].DriverName.ShouldBe("Tyrus Clements");
-        data[7].Rank.ShouldBe(DriverRank.None);
-        data[8].DriverName.ShouldBe("Tray Law");
-        data[8].Rank.ShouldBe(DriverRank.None);
-        data[9].DriverName.ShouldBe("Tsuyoshi Yoshinouchi");
-        data[9].Rank.ShouldBe(DriverRank.None);
-        data[10].DriverName.ShouldBe("Randle Lahey");
-        data[10].Rank.ShouldBe(DriverRank.None);
-        data[11].DriverName.ShouldBe("Robert Pegg");
-        data[11].Rank.ShouldBe(DriverRank.None);
+        data[1].Name.ShouldBe("Sam Brooks7");
+        data[1].DriverRank.ShouldBe(Rank.None);
+        data[2].Name.ShouldBe("Drazen Car");
+        data[2].DriverRank.ShouldBe(Rank.None);
+        data[3].Name.ShouldBe("Mike DeGroot");
+        data[3].DriverRank.ShouldBe(Rank.None);
+        data[4].Name.ShouldBe("David Babson");
+        data[4].DriverRank.ShouldBe(Rank.None);
+        data[5].Name.ShouldBe("Matheus Guimaraes Jr");
+        data[5].DriverRank.ShouldBe(Rank.None);
+        data[6].Name.ShouldBe("Benjamin M Rogers");
+        data[6].DriverRank.ShouldBe(Rank.None);
+        data[7].Name.ShouldBe("Tyrus Clements");
+        data[7].DriverRank.ShouldBe(Rank.None);
+        data[8].Name.ShouldBe("Tray Law");
+        data[8].DriverRank.ShouldBe(Rank.None);
+        data[9].Name.ShouldBe("Tsuyoshi Yoshinouchi");
+        data[9].DriverRank.ShouldBe(Rank.None);
+        data[10].Name.ShouldBe("Randle Lahey");
+        data[10].DriverRank.ShouldBe(Rank.None);
+        data[11].Name.ShouldBe("Robert Pegg");
+        data[11].DriverRank.ShouldBe(Rank.None);
     }
 }
