@@ -4,7 +4,7 @@ using AutoMapper;
 using DriverRater.Api.Features.Drivers.v1.Commands;
 using DriverRater.Api.Features.Drivers.v1.Queries;
 using DriverRater.Api.Features.Shared;
-using DriverRater.Api.Services;
+using DriverRater.Shared;
 using DriverRater.Shared.Drivers.v1.Models;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -12,21 +12,14 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("api/v1/[controller]")]
-public class DriverController : BaseController
+public class DriverController(IMediator mediator, IMapper mapper, IUserContext userContext)
+    : BaseController(mediator, mapper)
 {
-    private IUserContext userContext;
-
-    public DriverController(IMediator mediator, IMapper mapper, IUserContext userContext) 
-        : base(mediator, mapper)
-    {
-        this.userContext = userContext;
-    }
-
     [Authorize]
-    [HttpGet("{userId}")]
+    [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<DriversRankModel>), StatusCodes.Status200OK)]
-    public Task<IActionResult> Get(Guid userId) =>
-        ExecuteQuery<GetDriversForUser.Query, IEnumerable<DriversRankModel>>(userId);
+    public Task<IActionResult> Get() =>
+        ExecuteQuery<GetDriversForUser.Query, IEnumerable<DriversRankModel>>(userContext);
 
     [Authorize]
     [HttpPost("rank")]

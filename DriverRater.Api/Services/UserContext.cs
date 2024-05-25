@@ -1,18 +1,7 @@
 ﻿namespace DriverRater.Api.Services;
 
 using System.Security.Claims;
-using JetBrains.Annotations;
-using Microsoft.IdentityModel.JsonWebTokens;
-
-public interface IUserContext
-{
-    string ExternalId { get; }
-    string FirstName { get; }
-    string LastName { get; }
-    string? PictureUrl { get; }
-    Guid? ProfileId { get; }
-    string? Locale { get; }     
-}
+using DriverRater.Shared;
 
 public class UserContext : IUserContext
 {
@@ -41,5 +30,6 @@ public class UserContext : IUserContext
     public Guid? ProfileId { get; }
     public string? Locale { get; }
 
-    public bool IsRegistered => ProfileId != null;
+    public string Name => $"{FirstName} {LastName}".Trim();
+    public bool HasRegistered => ProfileId != null;
 }

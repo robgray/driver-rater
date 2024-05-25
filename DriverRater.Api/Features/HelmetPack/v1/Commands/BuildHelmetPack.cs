@@ -5,43 +5,37 @@ using System.Reflection;
 using DriverRater.Api.Entities;
 using DriverRater.Api.Exceptions;
 using DriverRater.Api.Helpers;
-using DriverRater.Api.Plumbing.Mediator;
+using DriverRater.Api.Plumbing.Startup.Mediator;
+using DriverRater.Shared;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 public class BuildHelmetPack
 {
-    public class Command : ICommand<Response>
+    public record Command : ICommand<Response>
     {
-        public Guid UserId { get; set; }
+        public IUserContext UserContext { get; set; }
     }
 
-    public class Response
+    public record Response
     {
         public string Filename { get; set; }
         public byte[] ZilFileData { get; set; }
     }
     
-    public class FileData
+    public record FileData
     {
         public string FileName { get; set; }
         public byte[] Data { get; set; }
     }
 
-    public class CommandHandler : ICommandHandler<Command, Response>
+    public class CommandHandler(DriverRatingContext context) : ICommandHandler<Command, Response>
     {
-        private DriverRatingContext context;
-        
-        public CommandHandler(DriverRatingContext context)
-        {
-            this.context = context;
-        }
-        
         public async Task<Response> Handle(Command command, CancellationToken cancellationToken)
         {
             var user = await context.Profiles
                 .Include(u => u.RankedDrivers)
-                .SingleOrDefaultAsync(u => u.Id == command.UserId, cancellationToken);
+                .SingleOrDefaultAsync(u => u.Id == command.UserContext.ProfileId, cancellationToken);
 
             if (user is null)
             {
@@ -58,7 +52,7 @@ public class BuildHelmetPack
                 .Select(d => new FileData
                 {
                     FileName = $"helmet_{d.RacingId}.tga",
-                    Data = helmetFileData(templateName(d.Rank)),
+                    Data = HelmetFileData(TemplateName(d.Rank)),
                 })
                 .ToArray();
             
@@ -95,7 +89,7 @@ public class BuildHelmetPack
                 }
             }
 
-            string templateName(DriverRank rank) => rank switch
+            string TemplateName(DriverRank rank) => rank switch
             {
                 DriverRank.Black => "helmet_black",
                 DriverRank.Blue => "helmet_blue",
@@ -105,7 +99,7 @@ public class BuildHelmetPack
                 _ => throw new Exception("Invalid Driver Rank for helmets"),
             };
 
-            byte[] helmetFileData(string helmetFile)
+            byte[] HelmetFileData(string helmetFile)
             {
                 var assembly = Assembly.GetExecutingAssembly();
                 var resourceName = assembly.GetManifestResourceNames()

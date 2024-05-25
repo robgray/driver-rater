@@ -2,18 +2,18 @@
 
 using Aydsko.iRacingData;
 using DriverRater.Api.Exceptions;
-using DriverRater.Api.Plumbing.Mediator;
+using DriverRater.Api.Plumbing.Startup.Mediator;
 using JetBrains.Annotations;
 
 [UsedImplicitly]
 public class GetMemberRecentRaces
 {
-    public class Query : IQuery<IEnumerable<Response>>
+    public record Query : IQuery<IEnumerable<Response>>
     {
         public int MemberId { get; set; }
     }
 
-    public class Response
+    public record Response
     {
         public int MemberId { get; set; }
         public int SubsessionId { get; set; }
@@ -27,15 +27,8 @@ public class GetMemberRecentRaces
     }
 
     [UsedImplicitly]
-    public class QueryHandler : IQueryHandler<Query, IEnumerable<Response>>
+    public class QueryHandler(IDataClient client) : IQueryHandler<Query, IEnumerable<Response>>
     {
-        private readonly IDataClient client;
-        
-        public QueryHandler(IDataClient client)
-        {
-            this.client = client;
-        }
-
         public async Task<IEnumerable<Response>> Handle(Query query, CancellationToken cancellationToken)
         {
             var response = await client.GetMemberRecentRacesAsync(query.MemberId, cancellationToken);

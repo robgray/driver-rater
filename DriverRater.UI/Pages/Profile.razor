@@ -1,0 +1,56 @@
+﻿@page "/profile"
+@using DriverRater.Shared
+@inject AuthenticationStateProvider AuthenticationStateProvider;
+
+<h3>Profile</h3>
+
+<PageTitle>User Profile </PageTitle>
+@if (userContext is not null)
+{
+    @if (userContext.HasRegistered == false)
+    {
+        <p>You need to register. Hang on a sec. We got you fam.</p>
+
+        <EditForm Model="@userContext" OnSubmit="@Submit">
+            <InputText></InputText>
+            <button type="submit">Submit</button>
+        </EditForm>
+        <table class="table">
+            <tbody>
+            <tr>
+                <td>Name</td><td>@userContext.Name</td>
+                <td>iRacing Number</td><td></td>
+            </tr>
+            </tbody>
+        </table>
+        <button>Save</button>
+    }
+    else
+    {
+        <p>Never mind. You are already registered with us!</p>
+    }
+}
+
+@code {
+    
+    public RacingProfile? RacerProfile { get; set; }
+    
+    private IUserContext? userContext;
+
+    protected override async Task OnInitializedAsync()
+    {
+        userContext = await User.GetUser(AuthenticationStateProvider); 
+    }
+
+    private void Submit()
+    {
+        
+    }
+
+    public class RacingProfile
+    {
+        public Guid Id { get; set; }
+        
+        public int? RacingId { get; set; }
+    }
+}

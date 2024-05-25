@@ -45,7 +45,7 @@ public class DriverControllerTests : ApiFactory<Startup>
         
         var client = CreateAuthenticatedClient(profile.Id);
 
-        var response = await client.Request($"/api/v1/driver/{profile.Id}")
+        var response = await client.Request($"/api/v1/driver")
             .AllowAnyHttpStatus()
             .GetAsync();
         

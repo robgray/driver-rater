@@ -17,7 +17,7 @@ public class RacingServiceMappingProfile : Profile
             .ForMember(q => q.SubsessionId, o => o.MapFrom(i => i));
         
         CreateMap<Guid, GetRacersInSubsession.Query>()
-            .ForMember(q => q.UserId, o => o.MapFrom(g => g));
+            .ForMember(q => q.ProfileId, o => o.MapFrom(g => g));
         
         CreateMap<GetRacersInSubsession.Response, DriversRankModel>()
             .ForMember(r => r.Id, o => o.MapFrom(m => m.RankedDriverId))

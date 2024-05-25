@@ -10,16 +10,13 @@ using DriverRater.Shared.RacingService.v1.Models;
 public class DriverRaterApi : IDriverRaterApi
 {
     private readonly HttpClient client;
-    private readonly User user;
     private readonly ILocalStorageService localStorage;
 
     public DriverRaterApi(
         HttpClient client,
-        User user,
         ILocalStorageService localStorage)
     {
         this.client = client;
-        this.user = user;
         this.localStorage = localStorage;
     }
 
@@ -58,7 +55,7 @@ public class DriverRaterApi : IDriverRaterApi
     public async Task<IEnumerable<DriversRankModel>> GetDriversInRace(int subsessionId)
     {
         return await JsonSerializer.DeserializeAsync<IEnumerable<DriversRankModel>>
-        (await client.GetStreamAsync($"/api/v1/racingservice/{subsessionId}/drivers/{user.Id}"),
+        (await client.GetStreamAsync($"/api/v1/racingservice/{subsessionId}/drivers"),
             new JsonSerializerOptions
             {
                 PropertyNameCaseInsensitive = true,
@@ -66,14 +63,14 @@ public class DriverRaterApi : IDriverRaterApi
             });
     }
         
-    public string DownloadHelmetPackForUserUrl() => $"/api/v1/helmetpack/{user.Id}";
+    public string DownloadHelmetPackForUserUrl() => $"/api/v1/helmetpack";
     
 
     public string DownloadHelmetPackForAllUrl() => "/api/v1/helmetpack/all";
 
     public async Task<IEnumerable<DriversRankModel>> GetDriversForUser() =>
         await JsonSerializer.DeserializeAsync<IEnumerable<DriversRankModel>>
-        (await client.GetStreamAsync($"/api/v1/driver/{user.Id}"),
+        (await client.GetStreamAsync($"/api/v1/driver"),
         new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true,

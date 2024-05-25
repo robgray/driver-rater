@@ -3,14 +3,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Internal;
 
-public class DriverRatingContext : DbContext
+public class DriverRatingContext(DbContextOptions options)
+    : DbContext(options)
 {
-    private readonly ISystemClock clock;
-    
-    public DriverRatingContext(DbContextOptions options) : base(options)
-    {
-        clock = new SystemClock();
-    }
+    private readonly ISystemClock clock = new SystemClock();
 
     public DbSet<RankedDriver> Drivers { get; set; }
     

@@ -57,7 +57,7 @@ public class HelmetPackControllerTests : ApiFactory<Startup>
         await context.SaveChangesAsync(ct);
 
         var client = CreateAuthenticatedClient(profile.Id);
-        var response = await client.Request($"/api/v1/helmetpack/{profile.Id}")
+        var response = await client.Request($"/api/v1/helmetpack")
             .AllowAnyHttpStatus()
             .DownloadFileAsync(
                 localFolderPath: "C:/temp/",

@@ -2,8 +2,8 @@
 
 using Aydsko.iRacingData;
 using DriverRater.Api.Entities;
-using DriverRater.Api.Plumbing.Mediator;
-using DriverRater.Api.Services;
+using DriverRater.Api.Plumbing.Startup.Mediator;
+using DriverRater.Shared;
 using FluentValidation;
 using JetBrains.Annotations;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 public class UpdateDriverRank
 {
     [UsedImplicitly]
-    public class Command : ICommand<Response>
+    public record Command : ICommand<Response>
     {
         public Guid RankedDriverId { get; set; }
     
@@ -23,25 +23,12 @@ public class UpdateDriverRank
         public IUserContext Profile { get; set; }
     }
 
-    public class Response
-    {
-        public Guid RankedDriverId { get; set; }
-        public string Name { get; set; }
-        public DriverRank Rank { get; set; }
-    }
-
+    public record Response(Guid RankedDriverId, string Name, DriverRank Rank);
+   
     [UsedImplicitly]
-    public class CommandHandler : ICommandHandler<Command, Response>
-    {
-        private readonly DriverRatingContext ratingContext;
-        private readonly IDataClient dataClient;
-        
-        public CommandHandler(DriverRatingContext ratingContext, IDataClient dataClient)
-        {
-            this.ratingContext = ratingContext;
-            this.dataClient = dataClient;
-        }
-        
+    public class CommandHandler(DriverRatingContext ratingContext, IDataClient dataClient) 
+        : ICommandHandler<Command, Response>
+    {   
         public async Task<Response> Handle(Command command, CancellationToken cancellationToken)
         {
             RankedDriver driver;

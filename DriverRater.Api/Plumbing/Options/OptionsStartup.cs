@@ -1,13 +1,14 @@
 ﻿namespace DriverRater.Api.Plumbing.Options;
 
-using DriverRater.Api.Options;
+using DriverRater.Api.Settings;
 
 public static class OptionsStartup
 {
     public static IServiceCollection AddCustomOptions(this IServiceCollection services, IConfiguration configuration)
     {
-        services.Configure<iRacingOptions>(configuration.GetSection(iRacingOptions.Key));
-        
+        services.AddOptionsWithFluentValidation<iRacingSettings>(iRacingSettings.Key);
+        services.AddOptionsWithFluentValidation<AuthenticationSettings>(AuthenticationSettings.Key);
+            
         return services;
     }
 }

@@ -3,28 +3,30 @@
 using DriverRater.Api.Entities;
 using DriverRater.Api.Features.Drivers.v1.Commands;
 using DriverRater.Api.Features.Drivers.v1.Queries;
-using DriverRater.Api.Services;
+using DriverRater.Shared;
 using DriverRater.Shared.Drivers.v1.Models;
-using Profile = AutoMapper.Profile;
+using Mapster;
 
-public class DriverMappingProfile : Profile
+
+public class DriverMappingProfile : IRegister
 {
-    public DriverMappingProfile()
+    public void Register(TypeAdapterConfig config)
     {
-        CreateMap<Guid, GetDriversForUser.Query>()
-            .ForMember(q => q.UserId, o => o.MapFrom(g => g));
-        CreateMap<RankedDriver, DriversRankModel>()
-            .ForMember(drm => drm.LastRankedDate, o => o.MapFrom(d => d.DateRanked))
-            .ForMember(drm => drm.DriverRank, o => o.MapFrom(d => d.Rank))
-            .ForPath(drm => drm.UserId, o => o.MapFrom(d => d.RankedBy.Id));
+       config.NewConfig<Guid, GetDriversForUser.Query>()
+            .Map(dest => dest.UserContext.ProfileId, src => src);
 
-        CreateMap<UpdateDriverRankRequest, UpdateDriverRank.Command>()
-            .ForMember(d => d.NewRank, o => o.MapFrom(s => s.NewRank.ConvertToDriverRank()));
+        config.NewConfig<RankedDriver, DriversRankModel>()
+            .Map(drm => drm.LastRankedDate, src => src.DateRanked)
+            .Map(model => model.DriverRank, src => src.Rank)
+            .Map(model => model.UserId, src => src.RankedBy.Id);
 
-        CreateMap<IUserContext, UpdateDriverRank.Command>()
-            .ForMember(d => d.Profile, o => o.MapFrom(profile => profile));
+        config.NewConfig<UpdateDriverRankRequest, UpdateDriverRank.Command>()
+            .Map(dest => dest.NewRank, src => src.NewRank.ConvertToDriverRank());
 
-        CreateMap<UpdateDriverRank.Response, UpdateDriverRankResponse>()
-            .ForMember(d => d.Rank, o => o.MapFrom(d => d.Rank.ConvertToRank()));
-    }   
+        config.NewConfig<IUserContext, UpdateDriverRank.Command>()
+            .Map(dest => dest.Profile, src => src);
+
+        config.NewConfig<UpdateDriverRank.Response, UpdateDriverRankResponse>()
+            .Map(dest => dest.Rank, src => src.Rank.ConvertToRank());
+    }
 }

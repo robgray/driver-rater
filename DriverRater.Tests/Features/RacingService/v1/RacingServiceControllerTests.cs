@@ -46,7 +46,7 @@ public class RacingServiceControllerTests : ApiFactory<Startup>
         const int SubsessionId = 60565875;
 
         var client = CreateAuthenticatedClient(profile.Id);
-        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers/{profile.Id}")
+        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers")
             .AllowAnyHttpStatus()
             .GetAsync();
 
@@ -79,7 +79,7 @@ public class RacingServiceControllerTests : ApiFactory<Startup>
         await context.SaveChangesAsync();
         
         var client = CreateAuthenticatedClient(notMeProfile.Id);
-        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers/{notMeProfile.Id}")
+        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers")
             .AllowAnyHttpStatus()
             .GetAsync();
 
@@ -121,7 +121,7 @@ public class RacingServiceControllerTests : ApiFactory<Startup>
         await context.SaveChangesAsync();
         
         var client = CreateAuthenticatedClient(notMeProfile.Id);
-        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers/{notMeProfile.Id}")
+        var response = await client.Request($"/api/v1/racingservice/{SubsessionId}/drivers")
             .AllowAnyHttpStatus()
             .GetAsync();
 

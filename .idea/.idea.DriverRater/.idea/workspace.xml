@@ -10,147 +10,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4ac61362-b831-4fb1-825a-3ffad468689e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Models/DriverRankHelpers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Migrations/20230406232824_AddNotesColumn.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Migrations/20230406232824_AddNotesColumn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Migrations/20230407043846_ChangeLastUpdatedDateColumnName.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Migrations/20230407043846_ChangeLastUpdatedDateColumnName.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Options/Auth0Options.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Auth/HasScopeHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Auth/HasScopeRequirement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/UserContext/UserContextStartup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Services/UserContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.Shared/Rank.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Api/DriverRaterApi.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Api/IDriverRaterApi.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Api/LocalStorageKeys.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Components/AuthenticationStatus.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Components/RaceCompetitors.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Components/RaceCompetitors.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Components/RaceCompetitors.razor.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Components/RaceInfoPanel.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Components/RaceInfoPanel.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Components/RecentRacesTable.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Components/RecentRacesTable.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/DateTimeOffsetHelpers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Pages/AllRanked.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Pages/Race.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Pages/RecentRaces.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DriverRater.UI/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.Shared/Class1.cs" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Options/OptionsBuilderExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/ServiceCollectionExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Mapster/MapsterStartup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Validation/FluentValidateOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Settings/AuthenticationSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DriverRater.Api/Settings/iRacingSettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DriverRater.Shared/IUserContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DriverRater.UI/Pages/Profile.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DriverRater/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DriverRater/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/DriverRater.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/DriverRater.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Entities/DriverRatingContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Entities/DriverRatingContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Entities/Profile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Entities/Profile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Entities/RankedDriver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Entities/RankedDriver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Exceptions/EntityNotFoundException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Exceptions/EntityNotFoundException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Commands/UpdateDriverRankCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Commands/UpdateDriverRankCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/DriverController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/DriverController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Models/DriverMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Models/DriverMappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Queries/GetDriversForUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Queries/GetDriversForUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/HelmetPack/v1/Commands/BuildHelmetPack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/HelmetPack/v1/Commands/BuildHelmetPack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/HelmetPack/v1/HelmetPackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/HelmetPack/v1/HelmetPackController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/HelmetPack/v1/Models/HelmetPackMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/HelmetPack/v1/Models/HelmetPackMappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/Models/RacingServiceMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/Models/RacingServiceMappingProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/Queries/GetMemberRecentRaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/Queries/GetMemberRecentRaces.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/Queries/GetRacersInSubsession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/Queries/GetRacersInSubsession.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/RacingServiceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/RacingServiceController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Features/Shared/BaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Shared/BaseController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Options/Auth0Options.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Options/iRacingOptions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Auth/AuthPolicies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Auth/AuthPolicies.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Auth/AuthStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Auth/AuthStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Auth/HasScopeHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Auth/HasScopeHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Auth/HasScopeRequirement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Auth/HasScopeRequirement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Automapper/AutomapperStartup.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Controllers/ControllerStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Controllers/ControllerStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Cors/CorsStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Cors/CorsStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/DbContext/DbContextStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/DbContext/DbContextStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/KeyVault/KeyVaultAuthenticationOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/KeyVault/KeyVaultAuthenticationOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/KeyVault/KeyVaultStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/KeyVault/KeyVaultStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Logging/LoggingStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Logging/LoggingStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Logging/OperationIdEnricher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Logging/OperationIdEnricher.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/DoNotLogAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Mediator/DoNotLogAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/ICommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Mediator/ICommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/IQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Mediator/IQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/LoggingBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Mediator/LoggingBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/MediatorExceptionFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Mediator/MediatorExceptionFilter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/MediatorStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Mediator/MediatorStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/PagedResults.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Mediator/PagedResults.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/ValidationBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Mediator/ValidationBehaviour.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Options/OptionsStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Options/OptionsStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Swagger/SwaggerStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Swagger/SwaggerStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/UserContext/UserContextStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/UserContext/UserContextStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Validation/ValidationStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Startup/Validation/ValidationStartup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Services/UserContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Services/UserContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverRater.Shared/DriverRater.Shared.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Shared/DriverRater.Shared.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverRater.Tests/DriverRater.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Tests/DriverRater.Tests.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverRater.Tests/Features/Drivers/v1/DriverControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Tests/Features/Drivers/v1/DriverControllerTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverRater.Tests/Features/Helmets/v1/HelmetPackControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Tests/Features/Helmets/v1/HelmetPackControllerTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverRater.Tests/Features/RacingService/v1/RacingServiceControllerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Tests/Features/RacingService/v1/RacingServiceControllerTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.Tests/Plumbing/ApiFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Tests/Plumbing/ApiFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Api/DriverRaterApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/Api/DriverRaterApi.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverRater.UI/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/App.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverRater.UI/DriverRater.UI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/DriverRater.UI.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Pages/Authentication.razor" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/Pages/Authentication.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Pages/Counter.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Pages/FetchData.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/Pages/Index.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Pages/Race.razor" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/Pages/Race.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverRater.UI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Shared/LoginDisplay.razor" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DriverRater.UI/Shared/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/Shared/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Shared/MainLayout.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/Shared/MainLayout.razor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Shared/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/Shared/NavMenu.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Shared/RedirectToLogin.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/Shared/SurveyPrompt.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/_Imports.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/wwwroot/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/wwwroot/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/wwwroot/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.UI/wwwroot/sample-data/weather.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/DriverRater.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/DriverRater.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Entities/Configurations/DriverConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Entities/Configurations/DriverConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Entities/Configurations/UserConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Entities/Configurations/ProfileConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Entities/DriverRank.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Entities/DriverRank.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Entities/DriverRatingContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Entities/DriverRatingContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Entities/RankedDriver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Entities/RankedDriver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Entities/Profile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Exceptions/EntityNotFoundException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Exceptions/EntityNotFoundException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Extensions/EnumerableExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Extensions/EnumerableExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Extensions/MapperExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Extensions/MapperExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Extensions/ObjectExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Extensions/ObjectExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Extensions/StringExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Extensions/StringExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Drivers/v1/Commands/UpdateDriverRankCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Commands/UpdateDriverRankCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Drivers/v1/DriverController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/DriverController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Drivers/v1/Models/DriverMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Models/DriverMappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Drivers/v1/Models/DriversRankModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Shared/Drivers/v1/Models/DriversRankModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Drivers/v1/Models/NewDriverRankRequest.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Drivers/v1/Models/UpdateDriverRankRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Shared/Drivers/v1/Models/UpdateDriverRankRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Drivers/v1/Models/UpdateDriverRankResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Shared/Drivers/v1/Models/UpdateDriverRankResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Drivers/v1/Queries/GetDriversForUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Queries/GetDriversForUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/HelmetPack/v1/Commands/BuildHelmetPack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/HelmetPack/v1/Commands/BuildHelmetPack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/HelmetPack/v1/HelmetPackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/HelmetPack/v1/HelmetPackController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/HelmetPack/v1/Models/HelmetPackMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/HelmetPack/v1/Models/HelmetPackMappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/RacingService/v1/Models/RacingServiceMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/Models/RacingServiceMappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/RacingService/v1/Models/RecentMemberRaceSummary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Shared/RacingService/v1/Models/RecentMemberRaceSummary.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/RacingService/v1/Models/SubsessionRankedDriver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Shared/RacingService/v1/Models/SubsessionRankedDriver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/RacingService/v1/Queries/GetMemberRecentRaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/Queries/GetMemberRecentRaces.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/RacingService/v1/Queries/GetRacersInSubsession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/Queries/GetRacersInSubsession.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/RacingService/v1/RacingServiceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/RacingServiceController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Shared/BaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Shared/BaseController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Features/Shared/Models/PagedRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Features/Shared/Models/PagedRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Helpers/SessionTypes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Helpers/SessionTypes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Helpers/StreamHelpers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Helpers/StreamHelpers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Migrations/20230222101413_InitialCreate.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Migrations/20230222101413_InitialCreate.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Migrations/20230222101413_InitialCreate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Migrations/20230222101413_InitialCreate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Migrations/DriverContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Migrations/DriverContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Options/iRacingOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Options/iRacingOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Auth/AuthPolicies.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Auth/AuthPolicies.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Auth/AuthStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Auth/AuthStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Automapper/AutomapperStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Automapper/AutomapperStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Controllers/ControllerStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Controllers/ControllerStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Cors/CorsStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Cors/CorsStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/DbContext/DbContextStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/DbContext/DbContextStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/KeyVault/KeyVaultAuthenticationOptions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/KeyVault/KeyVaultAuthenticationOptions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/KeyVault/KeyVaultStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/KeyVault/KeyVaultStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Logging/LoggingStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Logging/LoggingStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Logging/OperationIdEnricher.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Logging/OperationIdEnricher.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Mediator/DoNotLogAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/DoNotLogAttribute.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Mediator/ICommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/ICommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Mediator/IQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/IQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Mediator/LoggingBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/LoggingBehavior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Mediator/MediatorExceptionFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/MediatorExceptionFilter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Mediator/MediatorStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/MediatorStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Mediator/PagedResults.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/PagedResults.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Mediator/ValidationBehaviour.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Mediator/ValidationBehaviour.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Options/OptionsStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Options/OptionsStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Swagger/SwaggerStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Swagger/SwaggerStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Plumbing/Validation/ValidationStartup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Plumbing/Validation/ValidationStartup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Resources/helmet_black.tga" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Resources/helmet_black.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Resources/helmet_blue.tga" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Resources/helmet_blue.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Resources/helmet_green.tga" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Resources/helmet_green.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Resources/helmet_red.tga" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Resources/helmet_red.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Resources/helmet_yellow.tga" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Resources/helmet_yellow.tga" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DriverRater/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.Api/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/react-app-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/reportWebVitals.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/setupTests.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DriverRater.UI/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DriverRater.UI/User.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,9 +94,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0a588667d4982a931eac28c74bdbfaa7ee5868ed8bc644e4f418acc71f1ee6/JwtRegisteredClaimNames.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1697ef77df9e49dd80496073114d06c1188b0/_065bf/ClaimTypes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4179ee68e38890e1baea4546e94f9b974e2be17ebc258f5e868f57d044af61/JwtRegisteredClaimNames.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/88ec3bc3f37e76fbcc932a25f9f0c1c29fe2b343/src/Http/Authentication.Abstractions/src/AuthenticationOptions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -186,33 +110,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;RiderCSharpFileTemplatesSettingsId&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.DriverRater.Api: DriverRater.executor": "Debug",
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "RiderCSharpFileTemplatesSettingsId",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlserver&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlserver"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\robgr\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\robgr\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\robgr\\AppData\\Local\\Symbols\\src&quot;
+    "rider.external.source.directories": [
+      "C:\\Users\\robgr\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\robgr\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\robgr\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.DriverRater.Api: DriverRater">
     <configuration name="DriverRater.Api: DriverRater" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/DriverRater.Api/DriverRater.Api.csproj" />
@@ -282,6 +207,11 @@
       <workItem from="1691731838449" duration="165000" />
       <workItem from="1691732144735" duration="3107000" />
       <workItem from="1691792896048" duration="11134000" />
+      <workItem from="1691878582265" duration="8034000" />
+      <workItem from="1692170079093" duration="2813000" />
+      <workItem from="1693029565550" duration="1501000" />
+      <workItem from="1696631291428" duration="315000" />
+      <workItem from="1710542077463" duration="12081000" />
     </task>
     <servers />
   </component>
@@ -309,40 +239,14 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DriverRater.Tests/Features/Drivers/v1/DriverControllerTests.cs</url>
-          <line>45</line>
-          <properties documentPath="C:\source\robgray\driver-rater\DriverRater.Tests\Features\Drivers\v1\DriverControllerTests.cs" initialLine="45" containingFunctionPresentation="Method 'Get_ShouldReturnDriversRatedByThisUser'">
-            <startOffsets>
-              <option value="1406" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1457" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Commands/UpdateDriverRankCommand.cs</url>
-          <line>46</line>
-          <properties documentPath="C:\source\robgray\driver-rater\DriverRater.Api\Features\Drivers\v1\Commands\UpdateDriverRankCommand.cs" initialLine="46" containingFunctionPresentation="Method 'Handle'">
-            <startOffsets>
-              <option value="1331" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1351" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/DriverRater.Tests/Features/RacingService/v1/RacingServiceControllerTests.cs</url>
           <line>54</line>
           <properties documentPath="C:\source\robgray\driver-rater\DriverRater.Tests\Features\RacingService\v1\RacingServiceControllerTests.cs" initialLine="52" containingFunctionPresentation="Method 'GetRaceDrivers_WhenNoDriversRanked_ShouldGetAllDriversWithNoRank'">
             <startOffsets>
-              <option value="2042" />
+              <option value="2032" />
             </startOffsets>
             <endOffsets>
-              <option value="2067" />
+              <option value="2057" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="31" />
@@ -352,28 +256,41 @@
           <line>73</line>
           <properties documentPath="C:\source\robgray\driver-rater\DriverRater.Tests\Features\RacingService\v1\RacingServiceControllerTests.cs" initialLine="73" containingFunctionPresentation="Method 'GetRaceDrivers_WhenNoDriversRanked_ShouldGetAllDriversWithNoRank'">
             <startOffsets>
-              <option value="2799" />
+              <option value="2789" />
             </startOffsets>
             <endOffsets>
-              <option value="2833" />
+              <option value="2823" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/DriverRater.Api/Features/RacingService/v1/Queries/GetRacersInSubsession.cs</url>
-          <line>42</line>
+          <line>33</line>
           <properties documentPath="C:\source\robgray\driver-rater\DriverRater.Api\Features\RacingService\v1\Queries\GetRacersInSubsession.cs" initialLine="42" containingFunctionPresentation="Method 'Handle'">
             <startOffsets>
-              <option value="1323" />
-              <option value="1369" />
+              <option value="1109" />
+              <option value="1150" />
             </startOffsets>
             <endOffsets>
-              <option value="1478" />
-              <option value="1389" />
+              <option value="1113" />
+              <option value="1173" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DriverRater.Api/Features/Drivers/v1/Queries/GetDriversForUser.cs</url>
+          <line>22</line>
+          <properties documentPath="C:\source\robgray\driver-rater\DriverRater.Api\Features\Drivers\v1\Queries\GetDriversForUser.cs" initialLine="29" containingFunctionPresentation="Method 'Handle'">
+            <startOffsets>
+              <option value="704" />
+            </startOffsets>
+            <endOffsets>
+              <option value="935" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

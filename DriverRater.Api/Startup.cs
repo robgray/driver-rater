@@ -1,16 +1,19 @@
 ﻿namespace DriverRater.Api;
 
 using Aydsko.iRacingData;
-using DriverRater.Api.Options;
-using DriverRater.Api.Plumbing.Auth;
-using DriverRater.Api.Plumbing.Automapper;
-using DriverRater.Api.Plumbing.Controllers;
-using DriverRater.Api.Plumbing.Cors;
-using DriverRater.Api.Plumbing.DbContext;
-using DriverRater.Api.Plumbing.Mediator;
 using DriverRater.Api.Plumbing.Options;
-using DriverRater.Api.Plumbing.Swagger;
-using DriverRater.Api.Plumbing.UserContext;
+using DriverRater.Api.Plumbing.Startup.Auth;
+using DriverRater.Api.Plumbing.Startup.Automapper;
+using DriverRater.Api.Plumbing.Startup.Controllers;
+using DriverRater.Api.Plumbing.Startup.Cors;
+using DriverRater.Api.Plumbing.Startup.DbContext;
+using DriverRater.Api.Plumbing.Startup.Mapster;
+using DriverRater.Api.Plumbing.Startup.Mediator;
+using DriverRater.Api.Plumbing.Startup.Swagger;
+using DriverRater.Api.Plumbing.Startup.UserContext;
+using DriverRater.Api.Plumbing.Startup.Validation;
+using DriverRater.Api.Settings;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Logging;
 using Serilog;
 
@@ -32,11 +35,12 @@ public class Startup
 
         services
             .AddHttpContextAccessor()
+            .AddCustomValidation()
             .AddCustomCors(Configuration)
             .AddCustomControllers()
             .AddCustomAuth(Configuration)
             .AddCustomSwagger()
-            .AddCustomAutoMapper()
+            .AddCustomMapster()
             .AddCustomMediator()
             .AddCustomDbContext(Configuration)
             .AddCustomUserContext()
@@ -45,8 +49,8 @@ public class Startup
         services.AddHealthChecks();
 
         var iracingOptions = Configuration
-            .GetSection(iRacingOptions.Key)
-            .Get<iRacingOptions>();
+            .GetSection(iRacingSettings.Key)
+            .Get<iRacingSettings>();
 
         if (iracingOptions is null)
         {
@@ -65,14 +69,15 @@ public class Startup
 
     public void Configure(
         IApplicationBuilder app,
-        IWebHostEnvironment env)
+        IWebHostEnvironment env,
+        IOptionsMonitor<AuthenticationSettings> authenticationOptionsMon)
     {
         // Configure the HTTP request pipeline.
         if (!env.IsDevelopment())
         {
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
-            app.UseCustomSwagger();
+            app.UseCustomSwagger(Configuration);
         }
 
         if (env.IsDevelopment())
@@ -83,7 +88,6 @@ public class Startup
         app.UseBlazorFrameworkFiles();
         app.UseHttpsRedirection();
         app.UseStaticFiles();
-        app.UseCustomSwagger();
         app.UseRouting();
         app.UseCustomAuth();
         app.UseCors("Open");

@@ -1,4 +1,7 @@
-﻿<CascadingAuthenticationState>
+﻿@inject AuthenticationStateProvider StateProvider;
+@inject NavigationManager Navigation;
+
+<CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
@@ -20,3 +23,17 @@
         </NotFound>
     </Router>
 </CascadingAuthenticationState>
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        var state = await StateProvider.GetAuthenticationStateAsync();
+        if (state.User.Identity is {IsAuthenticated: true } && state.User.FindFirst("profile_id") is null)
+        {
+            Navigation.NavigateTo("/profile");
+        } 
+        // return base.OnInitializedAsync();
+    }
+
+}
