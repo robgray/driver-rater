@@ -2,6 +2,7 @@
 
 using Aydsko.iRacingData;
 using DriverRater.Options;
+using DriverRater.Plumbing.Auth;
 using DriverRater.Plumbing.Automapper;
 using DriverRater.Plumbing.Controllers;
 using DriverRater.Plumbing.Cors;
@@ -28,6 +29,7 @@ public class Startup
         IdentityModelEventSource.ShowPII = Env.IsDevelopment();
 
         services.AddCustomCors(Configuration)
+            .AddCustomAuth(Configuration)
             .AddCustomControllers()
             .AddCustomSwagger()
             .AddCustomAutoMapper()
@@ -59,7 +61,13 @@ public class Startup
             app.UseHsts();
             app.UseCustomSwagger();
         }
+        else
+        {
+            app.UseWebAssemblyDebugging();
+        }
 
+        app.ConfigureCustomAuth();
+        app.UseBlazorFrameworkFiles();
         app.UseHttpsRedirection();
         app.UseStaticFiles();
         app.UseCustomSwagger();
@@ -68,6 +76,7 @@ public class Startup
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllers();
+            endpoints.MapFallbackToFile("index.html");
         });
     }
 }

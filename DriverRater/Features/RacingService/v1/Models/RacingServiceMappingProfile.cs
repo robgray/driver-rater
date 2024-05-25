@@ -2,6 +2,7 @@
 
 using AutoMapper;
 using DriverRater.Features.RaceResults.v1.Queries;
+using DriverRater.Shared.Models;
 
 public class RacingServiceMappingProfile : Profile
 {

@@ -1,0 +1,34 @@
+﻿@if (RaceSummaries == null)
+{   
+    <p>Loading Race Summaries...</p>
+}
+else
+{
+    <table>
+        <thead>
+        <tr>
+            <th></th>
+            <th>Series</th>
+            <th>Start Time</th>
+            <th>Start Pos</th>
+            <th>Finish Pos</th>
+            <th>SOF</th>
+            <th>Winner</th>
+        </tr>
+        </thead>
+        <tbody>
+            @foreach (var race in RaceSummaries)
+            {
+                <tr>
+                    <td>@race.SubsessionId</td>
+                    <td>@race.SeriesName</td>
+                    <td>@race.SessionStartTime.ToString("g")</td>
+                    <td>@race.StartPosition</td>
+                    <td>@race.FinishPosition</td>
+                    <td>@race.StrengthOfField</td>
+                    <td>@race.WinnerName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

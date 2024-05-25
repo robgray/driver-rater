@@ -6,7 +6,6 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
-        /* setup the logger to catch all errors */
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Information()
             .WriteTo.Console()

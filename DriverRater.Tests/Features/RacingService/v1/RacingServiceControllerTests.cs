@@ -2,6 +2,7 @@
 
 using DriverRater.Entities;
 using DriverRater.Features.RaceResults.v1.Models;
+using DriverRater.Shared.Models;
 using DriverRater.Tests.Plumbing;
 using Flurl.Http;
 using Microsoft.AspNetCore.Http;

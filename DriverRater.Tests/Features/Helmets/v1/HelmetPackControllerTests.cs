@@ -64,10 +64,13 @@ public class HelmetPackControllerTests : ApiFactory<Startup>
         var response = await client.Request($"/api/v1/helmetpack/{user.Id}")
             .AllowAnyHttpStatus()
             .DownloadFileAsync(
-                localFolderPath: "C:/temp/",
+                localFolderPath: Path.GetTempPath(),
                 localFileName: $"helmet-{user.RacingId}.zip",
                 cancellationToken: ct);
 
-        response.ShouldBe($"C:/temp/helmet-{user.RacingId}.zip");
+        var path = $"{Path.GetTempPath()}helmet-{user.RacingId}.zip";
+        response.ShouldBe(path);
+        
+        File.Delete(path);
     }
 }

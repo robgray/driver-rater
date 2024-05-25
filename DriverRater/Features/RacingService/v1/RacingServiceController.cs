@@ -4,6 +4,7 @@ using AutoMapper;
 using DriverRater.Features.RaceResults.v1.Models;
 using DriverRater.Features.RaceResults.v1.Queries;
 using DriverRater.Features.Shared;
+using DriverRater.Shared.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
