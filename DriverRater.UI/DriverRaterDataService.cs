@@ -1,6 +1,6 @@
 ﻿namespace DriverRater.UI;
 
-using DriverRater.Shared.Models;
+using DriverRater.Shared.RacingService.v1.Models;
 using Flurl.Http;
 
 public class DriverRaterDataService(FlurlClient client) : IDriverRaterDataService

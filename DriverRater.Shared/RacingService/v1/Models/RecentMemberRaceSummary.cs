@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:DriverRater.Shared/Models/RecentMemberRaceSummary.cs
-﻿namespace DriverRater.Shared.Models;
-========
-﻿namespace DriverRater.Shared.RacingService.v1.Models;
->>>>>>>> 704296143f385a2951fb1d8d83d3c30ff9c3f554:DriverRater.Shared/RacingService/v1/Models/RecentMemberRaceSummary.cs
+namespace DriverRater.Shared.RacingService.v1.Models;
 
 public class RecentMemberRaceSummary
 {   

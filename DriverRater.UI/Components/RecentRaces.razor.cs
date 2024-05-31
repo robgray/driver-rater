@@ -1,6 +1,6 @@
 ﻿namespace DriverRater.UI.Components;
 
-using DriverRater.Shared.Models;
+using DriverRater.Shared.RacingService.v1.Models;
 using Microsoft.AspNetCore.Components;
 
 public partial class RecentRaces

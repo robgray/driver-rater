@@ -4,5 +4,5 @@ public class DriverApiOptions
 {
     public const string Key = "DriverApi";
     
-    public string BaseUrl { get; init; }
+    public required string BaseUrl { get; init; }
 }

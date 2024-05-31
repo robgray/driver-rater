@@ -3,7 +3,6 @@
 using Aydsko.iRacingData;
 using DriverRater.Api.Plumbing.Options;
 using DriverRater.Api.Plumbing.Startup.Auth;
-using DriverRater.Api.Plumbing.Startup.Automapper;
 using DriverRater.Api.Plumbing.Startup.Controllers;
 using DriverRater.Api.Plumbing.Startup.Cors;
 using DriverRater.Api.Plumbing.Startup.DbContext;

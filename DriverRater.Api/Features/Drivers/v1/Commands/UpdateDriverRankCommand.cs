@@ -52,12 +52,7 @@ public class UpdateDriverRank
             driver.UpdateRank(command.NewRank);
             await ratingContext.SaveChangesAsync(cancellationToken);
 
-            return new Response
-            {
-                RankedDriverId = driver.Id,
-                Name = driver.Name,
-                Rank = driver.Rank,
-            };
+            return new Response(driver.Id, driver.Name, driver.Rank);
         }
     }
 }
